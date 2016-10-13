@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Gamer Trade</string>
+    <string name="slogan">Cambia, juega, cambia</string>
+
+    <!--- Strings de Splash Bienvenida -->
+    <string name="skip">Saltar</string>
+    <string name="tituloFragment1">¡Busca!</string>
+    <string name="tituloFragment2">¡Intercambia!</string>
+    <string name="tituloFragment3">¡Desea!</string>
+    <string name="tituloFragment4">¡Colecciona!</string>
+    <string name="tituloFragment5">¡Bienvenid@!</string>
+    <string name="descripcion1">Encuentra cientos de videojuegos en tu ciudad</string>
+    <string name="descripcion2">Estrena videojuegos cambiando los que ya no usas</string>
+    <string name="descripcion3">Crea listas de deseos y más adelante verás que te falta!</string>
+    <string name="descripcion4">No solo videojuegos, consolas y accesorios también los encuentras aquí!</string>
+    <string name="conCuenta">Ya tengo cuenta</string>
+    <string name="sinCuenta">Quiero ser parte</string>
+
+    <!--- Strings de Registro y Login-->
+    <string name="nombreRegistro">Nombre(s)</string>
+    <string name="apellidoRegistro">Apellido(s)</string>
+    <string name="userRegistro">Usuario</string>
+    <string name="emailRegistro">E-mail</string>
+    <string name="claveRegistro">Clave</string>
+    <string name="confirmeClaveRegistro">Confirme Clave</string>
+    <string name="ciudadRegistro">Ciudad</string>
+    <string name="telefonoRegistro">Celular</string>
+    <string name="botonRegistro">Registrarme</string>
+    <string name="botonIngresar">Ingresar</string>
+    <string name="olvidoClave">Se me olvidó la clave...</string>
+    <string name="registroLogin">No soy usuario y quiero serlo!</string>
+
+    <string name="nombreRegistroHint">Fulanito</string>
+    <string name="apellidoRegistroHint">De Tal</string>
+    <string name="userRegistroHint">Inventa un nombre de usuario cool</string>
+    <string name="emailRegistroHint">nombre@ejemplo.com</string>
+    <string name="claveRegistroHint">Entre 6 y 20 caracteres</string>
+    <string name="confirmeClaveRegistroHint">Repite la clave</string>
+    <string name="ciudadRegistroHint">Tu ciudad</string>
+    <string name="telefonoRegistroHint">Número de tu móvil</string>
+    <string name="aceptoTerminos">Al registrarme, declaro que soy mayor de edad y acepto las políticas de privacidad y terminos de uso de la aplicación.</string>
+    <string name="usuarioLoginHint">Usuario</string>
+    <string name="claveLoginHint">Clave</string>
+
+    <!--- Navigation Bar-->
+    <string name="buscar">Buscar</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="cambiarTitulo">Cambios</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="cambiosPedido">Cambios marcados</string>
+    <string name="cambiosPublicados">Cambios publicados</string>
+    <string name="configuracion">Configuración</string>
+    <string name="datosPersonales">Datos Personales</string>
+    <string name="reputacion">Reputacion</string>
+    <string name="seguridad">Seguridad</string>
+    <string name="ingresoRegistro">Ingreso/Registro</string>
+
+    <!--- Varios -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="restaurar">Restaurar</string>
+    <string name="construccion">En Construcción!</string>
+
+
+</resources>

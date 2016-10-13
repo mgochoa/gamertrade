@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "137206688288",
+    "firebase_url": "https://gamer-trade.firebaseio.com",
+    "project_id": "gamer-trade",
+    "storage_bucket": "gamer-trade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137206688288:android:efdd64c9a3cf187e",
+        "android_client_info": {
+          "package_name": "co.com.gmrtrd.andmil.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137206688288-v951633jb1v7vj5f62c9m15d105ktuqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd843iC8floFpzHkiotN9u7SB6WiWV3xU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

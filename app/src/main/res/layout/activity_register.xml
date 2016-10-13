@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="co.com.gmrtrd.andmil.myapplication.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/infoPersonal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/idNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombreRegistroHint"
+            android:inputType="textCapWords" />
+
+        <EditText
+            android:id="@+id/idApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/apellidoRegistroHint"
+            android:inputType="textCapWords" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/infoCuenta"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoPersonal"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/idUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:hint="@string/userRegistroHint"/>
+
+        <EditText
+            android:id="@+id/idEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/emailRegistroHint"/>
+
+        <EditText
+            android:id="@+id/idClave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/claveRegistroHint"/>
+
+        <EditText
+            android:id="@+id/idConfirmeClave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/confirmeClaveRegistroHint"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/infoLocalizacion"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoCuenta"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/idCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ciudadRegistroHint" />
+
+        <EditText
+            android:id="@+id/telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/telefonoRegistroHint"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/botonRegistarLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoLocalizacion"
+        android:paddingTop="10dp">
+
+        <Button
+            android:id="@+id/botonRegistar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botonRegistro"
+            />
+
+        <TextView
+            android:id="@+id/terminosText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:text="@string/aceptoTerminos"/>
+    </LinearLayout>
+
+</RelativeLayout>

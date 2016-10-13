@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_buscar"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="@string/buscar" />
+        <item
+            android:id="@+id/nav_notificacion"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="@string/notificaciones" />
+        <item
+            android:id="@+id/nav_favorito"
+            android:icon="@android:drawable/star_big_on"
+            android:title="@string/favoritos" />
+    </group>
+
+    <item android:title="@string/cambiarTitulo">
+        <menu>
+            <item
+                android:id="@+id/nav_cambiar"
+                android:icon="@android:drawable/stat_notify_sync_noanim"
+                android:title="@string/cambiar" />
+            <item
+                android:id="@+id/nav_marcados"
+                android:icon="@android:drawable/ic_menu_view"
+                android:title="@string/cambiosPedido" />
+            <item
+                android:id="@+id/nav_publicado"
+                android:icon="@android:drawable/ic_menu_rotate"
+                android:title="@string/cambiosPublicados" />
+        </menu>
+    </item>
+
+    <item android:title="@string/configuracion">
+        <menu>
+            <item
+                android:id="@+id/nav_datosPersonales"
+                android:icon="@android:drawable/ic_menu_myplaces"
+                android:title="@string/datosPersonales" />
+            <item
+                android:id="@+id/nav_reputacion"
+                android:icon="@android:drawable/sym_action_chat"
+                android:title="@string/reputacion" />
+            <item
+                android:id="@+id/nav_seguridad"
+                android:icon="@android:drawable/ic_secure"
+                android:title="@string/seguridad" />
+            <item
+                android:id="@+id/nav_ingresoRegistro"
+                android:icon="@android:drawable/ic_menu_edit"
+                android:title="@string/ingresoRegistro" />
+        </menu>
+    </item>
+
+</menu>
