@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     public static String TAG="LoginActivity.java";
-    public static final int LOGIN_REQ = 50;
+    public static final int RC_SIGN_OUT = 50;
     private static final int RC_SIGN_IN =20;
     private static boolean persistedEnabled = false;
     private FirebaseAuth mAuth;
@@ -52,14 +53,26 @@ public class LoginActivity extends AppCompatActivity implements
         final TextView registroLink = (TextView) findViewById(R.id.linkRegistro);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+        Log.d(TAG,getString(R.string.default_web_client_id));
 // ...
         mAuth = FirebaseAuth.getInstance();
+        if(!LoginActivity.persistedEnabled){
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            persistedEnabled = true;
+        }
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
+            Intent ingresoIntent = new Intent(LoginActivity.this, MainActivity.class);
+            LoginActivity.this.startActivity(ingresoIntent);
+        }
+
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -94,29 +107,31 @@ public class LoginActivity extends AppCompatActivity implements
         LoginActivity.this.startActivity(ingresoIntent);
     }
     private void signIn() {
-        Intent ingresoIntent = new Intent(LoginActivity.this, MainActivity.class);
-        LoginActivity.this.startActivity(ingresoIntent);
+        /*Intent ingresoIntent = new Intent(LoginActivity.this, MainActivity.class);
+       // LoginActivity.this.startActivity(ingresoIntent);
         //Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        //startActivityForResult(signInIntent, RC_SIGN_IN);
+        //startActivityForResult(signInIntent, RC_SIGN_IN);*/
+        startActivityForResult(
+                AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setProviders(
+                                AuthUI.EMAIL_PROVIDER,
+                                AuthUI.GOOGLE_PROVIDER)
+                        .build(),
+                RC_SIGN_IN);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if (result.isSuccess()) {
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = result.getSignInAccount();
-                //firebaseAuthWithGoogle(account);
-                Intent ingresoIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(ingresoIntent);
+            if (resultCode == RESULT_OK) {
+                // user is signed in!
+                startActivity(new Intent(this, MainActivity.class));
 
             } else {
-                // Google Sign In failed, update UI appropriately
-                // ...
+                Toast.makeText(LoginActivity.this, "Try again later",
+                        Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -31,6 +31,7 @@ public class list_objects extends Fragment {
     private RecyclerView mRecyclerView;
     private RVAdapter mAdapter;
     private String TAG ="list_objetcs.java";
+    ChildEventListener childEventListener;
 
 
     public list_objects() {
@@ -83,7 +84,7 @@ public class list_objects extends Fragment {
         };
         mDatabase.addValueEventListener(getList);
         mDatabase.removeEventListener(getList);*/
-       ChildEventListener childEventListener = new ChildEventListener() {
+        childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
@@ -143,8 +144,9 @@ public class list_objects extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w(TAG, "postComments:onCancelled", databaseError.toException());
-                Toast.makeText(getContext(), "Failed to load object.",
-                        Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Failed to load object.",
+                       // Toast.LENGTH_SHORT).show();
+                mDatabase.removeEventListener(childEventListener);
             }
         };
         mDatabase.addChildEventListener(childEventListener);
@@ -154,6 +156,15 @@ public class list_objects extends Fragment {
         return thisview;
     }
 
-
-
+    @Override
+    public void onDestroyView() {
+        mDatabase.removeEventListener(childEventListener);
+        super.onDestroyView();
     }
+
+    @Override
+    public void onStop() {
+        mDatabase.onDisconnect();
+        super.onStop();
+    }
+}

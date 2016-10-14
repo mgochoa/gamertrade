@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "137206688288-c5gv3v0art3uiup2nfe1q6jed1rrg0s0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.gmrtrd.andmil.myapplication",
+            "certificate_hash": "B42F33FD78253392EE343B4A2478CCF181B12AED"
+          }
+        },
+        {
+          "client_id": "137206688288-uooi7cfkdkadt54bni0jvrvid6m20mh8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.gmrtrd.andmil.myapplication",
+            "certificate_hash": "29469962BEDC17ECA75184A848C360A89E28DBC5"
+          }
+        },
+        {
           "client_id": "137206688288-v951633jb1v7vj5f62c9m15d105ktuqo.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137206688288-v951633jb1v7vj5f62c9m15d105ktuqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
