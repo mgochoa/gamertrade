@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,12 +22,15 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public boolean isFirstStart;
+   // public boolean isFirstStart;
+   Fragment fragmentList;
+    Fragment fragmentoGenerico;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hiloSplash();
+      //  hiloSplash();
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,6 +52,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        fragmentList= new list_objects();
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.content_main, fragmentList)
+                .commit();
     }
 
     @Override
@@ -85,6 +96,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        fragmentoGenerico = null;
+        fragmentManager = getSupportFragmentManager();
         int id = item.getItemId();
 
         if (id == R.id.nav_buscar) {
@@ -98,18 +111,20 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_publicado) {
 
         } else if (id == R.id.nav_ingresoRegistro) {
-            Intent i = new Intent(MainActivity.this, RegisterActivity.class);
-            startActivity(i);
+            //Intent i = new Intent(MainActivity.this, RegisterActivity.class);
+           // startActivity(i);
+            finish();
         } else if (id == R.id.nav_datosPersonales) {
 
         }
+       ;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void hiloSplash(){
+    /*private void hiloSplash(){
         //  Declaración del hilo para hacer un preference check
         Thread t = new Thread(new Runnable() {
             @Override
@@ -133,5 +148,5 @@ public class MainActivity extends AppCompatActivity
             }
         });
         t.start();
-    }
+    }*/
 }
